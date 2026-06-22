@@ -1,0 +1,115 @@
+
+
+# Data Science and AIML  Portfolio
+
+Welcome to my data science portfolio repository. This index provides a detailed, end-to-end look at my technical journey, showcasing how I solve complex business
+problems using machine learning, computer vision, natural language processing, and cloud deployment.
+
+### SuperKart Sales Forecasting and Cloud Deployment
+
+In this project, I built a complete data science pipeline to help a retail chain predict product revenue and manage its supply chains. I started by checking the quality
+of a historical dataset containing 8,763 unique item records to ensure it had no missing numbers or duplicate rows. By reviewing the statistical summaries, I found key 
+baseline numbers like an average product maximum retail price of 147.03 and an average store sales total of 3,464.00. This process helped me understand how the data
+was spread out and locate extreme outliers, like sudden drops in a product's shelf visibility, which needed to be cleaned before model training. To find deeper insights,
+I used Python libraries to make visual charts like histograms and boxplots. These charts showed me that retail demand is heavily right-skewed, meaning a small group of
+high-selling products brings in most of the company's revenue. I also used bar charts to see how different items sell depending on the tier of the city, store layout
+designs, and store sizes, which taught me that an item's placement, price, and location interact to drive final sales. In the engineering stage, I built an automated
+transformation pipeline that scales numeric fields and converts text categories into binary numbers, ensuring the data is ready for predictive modeling. I split the data
+set into training and testing blocks and used an advanced gradient boosting algorithm called XGBoost, running an automated grid search to find the absolute best settings
+. Finally, I saved the completed pipeline and deployed it to a live cloud platform using Streamlit and Hugging Face, turning my local data code into an active web 
+dashboard where a retail manager can input store properties to instantly forecast product sales in real time.
+
+### HelmNet: Computer Vision Safety Monitoring
+
+For this project, I learned how to handle, explore, and preprocess image data to build an automated safety monitoring system named HelmNet, designed to check if workers
+are wearing safety helmets to reduce head injuries. I began by working with a dataset of 4,125 total images categorized into two classes, where 3,161 images showed
+individuals wearing safety helmets and 964 images showed individuals without them. In the initial data auditing phase, I used Python libraries to read and standardize
+the raw images, converting them into multi-dimensional NumPy arrays with uniform dimensions of 200 pixels in height by 200 pixels in width across 3 RGB color channels.
+This rigorous preprocessing step allowed me to verify that the final structural dataset shape was perfectly optimized for deep learning, creating a processed file asset
+totaling 472.07 megabytes. I learned the critical importance of ensuring reproducibility in computer vision workflows by setting deterministic random seeds across the
+Python environment, NumPy operations, and the TensorFlow backend, which guarantees that data splits and layer initializations remain consistent across training runs. 
+This project also provided deep insights into the challenges of building image classification models for real-world industrial environments. I learned how variations 
+in external conditions—such as diverse camera angles, fluctuating lighting, busy backgrounds, and different worker poses like walking, standing, or operating heavy 
+machinery—impact a model's ability to extract meaningful features. A major technical takeaway was recognizing the severe class imbalance in the dataset, where images
+with helmets heavily outnumbered those without. This imbalance taught me that relying solely on overall accuracy can be a dangerous metric in safety-critical application
+s, as a model might perform poorly at detecting violations while maintaining a deceptively high accuracy score. To mitigate this, I learned how evaluating precision and 
+recall becomes essential, discovering that lowering the prediction confidence threshold to a range of 0.3 to 0.4 is a much smarter business strategy. In a hazardous
+workplace, missing a single safety violation is far more dangerous than triggering a false alarm. Ultimately, this project taught me how to transform raw industrial
+imagery into a clean, well-structured dataset prepared for advanced neural networks, providing a practical foundation for deploying real-time automated safety alerts
+directly into manufacturing and construction site camera feeds.
+
+### Medical Assistant: Generative AI RAG Solution
+
+In this project, I learned how to build a smart, context-aware question-answering system that uses large language models to answer queries based on internal company 
+documents. I started by understanding how raw, unstructured text files are processed into a format that a machine learning pipeline can use. I learned how to clean text
+by removing unnecessary white space and characters, and how to split long documents into smaller, meaningful text chunks. This chunking process is vital because it
+ensures the language model only receives highly relevant pieces of information rather than being overwhelmed by a massive document all at once. From there, I learned
+how to convert these text chunks into mathematical vectors, known as embeddings, using pre-trained models. These embeddings capture the actual meaning and context of 
+the words, which allowed me to store them in a specialized vector database. I discovered that a vector database works by calculating the mathematical similarity between
+a user's question and the stored document text, quickly retrieving the top matching pieces of text that contain the answer. Moving into the model development phase, I 
+gained practical experience working with large language models through APIs and configuring essential parameters like temperature, top-p, and token limits to control how
+creative or precise the system's answers are. I learned how to engineer custom system prompts that instruct the model to behave like a helpful customer support agent and
+, crucially, to only answer using the provided document text rather than making things up. By combining the vector database search with the generation power of the language
+model, I built a complete system where a user asks a question, the database retrieves the most relevant paragraph from the company manual, and the language model reads
+that paragraph to write a clean, natural response. Finally, I learned how to build an interactive, web-based user interface using Streamlit, which allowed me to deploy
+the model into a clean dashboard where anyone can type a question, see the chat history, and get instant answers. Ultimately, this project taught me how to bridge the
+gap between static documents and artificial intelligence, turning raw data into a real-time, trustworthy AI assistant that can automate customer support and dramatically
+reduce the time humans spend answering repetitive questions.
+
+### ReneWind: Predictive Maintenance Optimization
+
+Through the ReneWind predictive maintenance project, I learned how to use sensor data and machine learning to predict mechanical failures in wind turbine generators 
+before they happen. I worked with a large dataset containing 20,000 records across 40 different hidden sensor features. While looking over the data, my initial checks 
+found a small number of missing values (18 empty entries each in the first two sensor columns), which taught me the importance of scanning for missing details before 
+starting a project. I also discovered that the data had already been scaled and centered around zero, meaning it was clean and pre-processed for mathematical consistency
+, though certain sensor columns still showed highly volatile ranges that pointed to potential machine anomalies. A major challenge in this project was dealing with a 
+massive class imbalance: 94.45% of the data represented normal turbine operations, while only 5.55% captured actual generator failures. This taught me that evaluating a 
+model based only on its overall accuracy is highly misleading, as a model could simply guess "no failure" every time and still score over 94% while completely missing 
+actual breakdowns. Because missing a failure (a False Negative) is incredibly expensive due to replacement costs, I learned how to prioritize high-recall models and 
+adjust decision boundaries. This project showed me how accepting small inspection costs from occasional false alarms (False Positives) is a much smarter strategy for a
+business, as it ultimately saves millions by catching catastrophic wind turbine failures early.
+
+### EasyVisa: Application Processing Automation
+
+Through the EasyVisa machine learning project, I learned how to clean, visualize, and analyze a large dataset to build a predictive model that helps automate the
+visa approval process. I started by exploring a dataset of 25,480 visa application records across 12 distinct employer and employee characteristics. While the dataset
+had no missing values, my initial data quality check caught critical errors, such as negative numbers for a company's total employee count, which required fixing before
+any modeling could begin. By running statistical summaries, I discovered a massive range in company sizes—with the largest reaching over 600,000 employees—and wide
+differences in prevailing wages, showing that the data needed to be scaled properly so the large numbers wouldn't confuse the machine learning model. When creating 
+charts to understand the data, I discovered a major class imbalance: roughly 66.8% of historical applications were "Certified" (approved) while only 33.2% were "Denied".
+This taught me that relying purely on simple accuracy wouldn't be enough to judge a model's true performance, as it would be biased toward the majority class. Through 
+further visual analysis, I found that an applicant's education level (like holding a Master's degree), prior job experience, and the region of employment played massive
+roles in whether a visa was approved. Ultimately, this project taught me how to take raw applicant and employer data, clean out outliers, and turn it into a smart 
+classification system that reduces manual paperwork, speeds up decision-making, and helps an organization focus its review efforts efficiently.
+
+### Personal Loan Campaign: Target Customer Segmentation
+
+Through this personal loan project, I learned how to clean, analyze, and map out bank customer data to make marketing campaigns much more efficient. I started with a
+dataset of 5,000 customers across 14 different features. A quick data quality check showed that the data was very clean with no missing numbers or duplicate rows, using
+13 integer columns and one decimal column to track credit card spending. By checking the unique values, I confirmed that key features like bank account usage were simple
+yes-or-no categories. However, the statistical summary caught an error: the job experience column listed a minimum value of -3 years, which is a mistake that needs to be
+fixed before building any machine learning models. I also found important averages for the bank's customer base: the average age was around 45 years, the average annual
+income was $73.77K (ranging up to $224K), and average credit card spending was $1.94K per month. Most importantly, I calculated that only 9.6% of targeted customers
+actually accepted a loan offer in the past. This heavy imbalance taught me that simple accuracy is a bad way to judge success, and I need to focus on precision and
+recall instead. Using Python charting tools, I found that customer ages follow a standard bell curve centered between 30 and 50, while incomes are right-skewed, 
+meaning most people make middle-to-lower incomes but a few high-earning outliers pull up the average. Ultimately, I used these patterns to group customers, discovering 
+that middle-aged, high-earning professionals who use online banking and already hold investment or savings accounts are the most likely to say yes to a loan, allowing 
+the bank to focus its marketing budget exactly where it works best.
+
+### FoodHub: Logistics and Aggregator Optimization
+
+Through this food delivery data analysis project, I learned how to clean, structure, and explore real-world datasets to find important business insights. I started
+by checking the data files to see exactly how much information I had to work with. My dataset contained 1,898 total order records split across 9 different columns,
+which included numerical information like whole numbers and decimals, as well as categorical information written as text. When I ran an automatic check for missing data,
+the system told me there were zero empty slots. However, when I looked closer at the actual text, I found a hidden issue: a large group of 736 orders had customer
+ratings listed as the text "Not given" instead of being left completely blank. Finding this hidden gap was a major learning experience because it taught me that
+datasets can look perfectly clean on the surface while still hiding incomplete information that needs to be fixed before making final business decisions. Next, I used
+basic math summaries to find the standard baseline numbers for how the delivery platform runs day-to-day, discovering that the time it takes for a kitchen to prepare
+a meal ranges from a quick minimum of 20 minutes to a maximum of 35 minutes, with the exact average sitting right at 27.37 minutes. To understand these numbers better,
+I used Python tools to create charts and graphs. I made matching pairs of histograms and boxplots for different columns, which visually showed me how spread out the
+order costs and delivery times were. These specific boxplots were incredibly helpful because they pointed out statistical outliers—orders that took way too long or
+cost an unusual amount of money compared to the rest of the data. I also built horizontal bar charts to rank the most popular choices on the app, making it easy to see
+which specific restaurants were completing the most orders, which types of food were the most popular, and how customer ordering habits changed between regular weekdays
+and busy weekends. Finally, I learned how to split the total delivery process into two separate parts: the time the restaurant takes to cook the food, and the time the
+courier takes to travel to the customer's house. By breaking the numbers down this way, I learned how to turn raw spreadsheet data into smart operational strategies to
+help dispatch delivery riders more efficiently, fix traffic bottlenecks, keep food arriving hot, and ultimately help local restaurant partners grow.
